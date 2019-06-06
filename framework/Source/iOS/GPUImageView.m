@@ -34,7 +34,7 @@
 - (void)destroyDisplayFramebuffer;
 
 // Handling fill mode
-- (void)recalculateViewGeometry;
+- (void)recalculateGeometry;
 
 @end
 
@@ -141,7 +141,7 @@
             [self createDisplayFramebuffer];
         });
     } else if (!CGSizeEqualToSize(self.bounds.size, CGSizeZero)) {
-        [self recalculateViewGeometry];
+        [self recalculateGeometry];
     }
 }
 
@@ -189,7 +189,7 @@
     NSAssert(framebufferCreationStatus == GL_FRAMEBUFFER_COMPLETE, @"Failure with display framebuffer generation for display of size: %f, %f", self.bounds.size.width, self.bounds.size.height);
     boundsSizeAtFrameBufferEpoch = self.bounds.size;
 
-    [self recalculateViewGeometry];
+    [self recalculateGeometry];
 }
 
 - (void)destroyDisplayFramebuffer;
@@ -230,7 +230,7 @@
 #pragma mark -
 #pragma mark Handling fill mode
 
-- (void)recalculateViewGeometry;
+- (void)recalculateGeometry;
 {
     __block CGRect currentBounds;
     dispatch_async(dispatch_get_main_queue(), ^(void){
@@ -426,7 +426,7 @@
         if (!CGSizeEqualToSize(inputImageSize, rotatedSize))
         {
             inputImageSize = rotatedSize;
-            [self recalculateViewGeometry];
+            [self recalculateGeometry];
         }
     });
 }
@@ -481,7 +481,7 @@
 - (void)setFillMode:(GPUImageFillModeType)newValue;
 {
     _fillMode = newValue;
-    [self recalculateViewGeometry];
+    [self recalculateGeometry];
 }
 
 @end
