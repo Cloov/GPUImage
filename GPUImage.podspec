@@ -3,7 +3,7 @@ Pod::Spec.new do |s|
   s.version  = '0.1.7'
   s.license  = 'BSD'
   s.summary  = 'An open source iOS framework for GPU-based image and video processing.'
-  s.homepage = 'https://github.com/BradLarson/GPUImage'
+  s.homepage = 'https://github.com/cloov/GPUImage'
   s.author   = { 'Brad Larson' => 'contact@sunsetlakesoftware.com' }
   s.source   = { :git => 'https://github.com/cloov/GPUImage.git', :tag => "#{s.version}" }
   
